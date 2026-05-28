@@ -1,0 +1,22 @@
+ion-content {
+
+  --background: linear-gradient(
+    to bottom,
+    #4e54c8,
+    #8f94fb
+  );
+}
+
+ion-card {
+
+  margin-top: 80px;
+
+  border-radius: 20px;
+
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+ion-button {
+
+  margin-top: 20px;
+}

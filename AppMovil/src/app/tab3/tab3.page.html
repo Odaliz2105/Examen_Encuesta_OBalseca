@@ -1,0 +1,205 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Encuesta Gamer
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-card>
+
+    <ion-card-header>
+      <ion-card-title>
+        Registro de Encuesta
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <!-- Alias -->
+      <ion-item>
+        <ion-input
+          label="Nombre o Alias"
+          [(ngModel)]="alias">
+        </ion-input>
+      </ion-item>
+
+      <!-- Edad -->
+      <ion-item>
+        <ion-select
+          label="Edad aproximada"
+          [(ngModel)]="edad">
+
+          <ion-select-option value="15-18">
+            15 - 18
+          </ion-select-option>
+
+          <ion-select-option value="19-22">
+            19 - 22
+          </ion-select-option>
+
+          <ion-select-option value="23-30">
+            23 - 30
+          </ion-select-option>
+
+        </ion-select>
+      </ion-item>
+
+      <!-- Rol -->
+      <ion-item>
+        <ion-select
+          label="Rol"
+          [(ngModel)]="rol">
+
+          <ion-select-option value="estudiante">
+            Estudiante
+          </ion-select-option>
+
+          <ion-select-option value="docente">
+            Docente
+          </ion-select-option>
+
+          <ion-select-option value="administrativo">
+            Administrativo
+          </ion-select-option>
+
+          <ion-select-option value="visitante">
+            Visitante
+          </ion-select-option>
+
+        </ion-select>
+      </ion-item>
+
+      <!-- Juego -->
+      <ion-item>
+        <ion-input
+          label="Videojuego favorito"
+          [(ngModel)]="videojuego">
+        </ion-input>
+      </ion-item>
+
+      <!-- Plataforma -->
+      <ion-item>
+        <ion-select
+          label="Plataforma"
+          [(ngModel)]="plataforma">
+
+          <ion-select-option value="PC">
+            PC
+          </ion-select-option>
+
+          <ion-select-option value="Consola">
+            Consola
+          </ion-select-option>
+
+          <ion-select-option value="Móvil">
+            Móvil
+          </ion-select-option>
+
+          <ion-select-option value="Navegador">
+            Navegador
+          </ion-select-option>
+
+        </ion-select>
+      </ion-item>
+
+      <!-- Género -->
+      <ion-item>
+        <ion-select
+          label="Género favorito"
+          [(ngModel)]="genero">
+
+          <ion-select-option value="accion">
+            Acción
+          </ion-select-option>
+
+          <ion-select-option value="aventura">
+            Aventura
+          </ion-select-option>
+
+          <ion-select-option value="rpg">
+            RPG
+          </ion-select-option>
+
+          <ion-select-option value="terror">
+            Terror
+          </ion-select-option>
+
+          <ion-select-option value="estrategia">
+            Estrategia
+          </ion-select-option>
+
+        </ion-select>
+      </ion-item>
+
+      <!-- Comentario -->
+      <ion-item>
+        <ion-textarea
+          label="Comentario"
+          [(ngModel)]="comentario">
+        </ion-textarea>
+      </ion-item>
+
+      <!-- Lugar -->
+      <ion-item>
+        <ion-input
+          label="Lugar del campus"
+          [(ngModel)]="lugar">
+        </ion-input>
+      </ion-item>
+
+      <!-- Foto -->
+      <div *ngIf="photoService.photos.length > 0">
+
+        <img
+          [src]="photoService.photos[0].webviewPath"
+          style="width: 100%; border-radius: 10px; margin-top: 15px;" />
+
+      </div>
+
+      <!-- GPS -->
+
+<ion-button
+  expand="block"
+  color="warning"
+  class="ion-margin-top"
+  (click)="obtenerUbicacion()">
+
+  Obtener GPS
+
+</ion-button>
+
+<ion-card *ngIf="latitud">
+
+  <ion-card-content>
+
+    <p>
+      📍 Latitud: {{ latitud }}
+    </p>
+
+    <p>
+      📍 Longitud: {{ longitud }}
+    </p>
+
+  </ion-card-content>
+
+</ion-card>
+
+      <!-- Botón -->
+      <ion-button
+        expand="block"
+        class="ion-margin-top"
+        color="success"
+        (click)="guardarEncuesta()">
+
+        Guardar Encuesta
+
+      </ion-button>
+
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>
