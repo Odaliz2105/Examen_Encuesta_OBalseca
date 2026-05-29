@@ -5,12 +5,12 @@ import {
   IonTitle,
   IonContent,
   IonItem,
-  IonLabel,
   IonInput,
   IonButton,
   IonText,
   IonCard,
-  IonCardContent
+  IonCardContent,
+  IonIcon
 } from '@ionic/angular/standalone';
 
 import { FormsModule } from '@angular/forms';
@@ -31,12 +31,12 @@ import { SupabaseService } from '../../services/supabase.service';
     IonTitle,
     IonContent,
     IonItem,
-    IonLabel,
     IonInput,
     IonButton,
     IonText,
     IonCard,
-    IonCardContent
+    IonCardContent,
+    IonIcon
   ]
 })
 export class LoginPage {

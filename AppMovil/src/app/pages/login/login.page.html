@@ -1,43 +1,64 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>Login Supabase</ion-title>
+    <ion-title>Game Survey Campus</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding login-content">
+  <div class="login-container">
+    <div class="logo-section">
+      <div class="logo-icon">
+        <ion-icon name="game-controller" size="large"></ion-icon>
+      </div>
+      <h1 class="app-title">Game Survey</h1>
+      <p class="app-subtitle">Plataforma de Encuestas Gamer</p>
+    </div>
 
-  <ion-card>
-    <ion-card-content>
+    <ion-card class="login-card">
+      <ion-card-content>
+        <div class="input-group">
+          <ion-item class="modern-item">
+            <ion-icon name="mail-outline" slot="start"></ion-icon>
+            <ion-input
+              type="email"
+              label="Correo electrónico"
+              labelPlacement="floating"
+              [(ngModel)]="email">
+            </ion-input>
+          </ion-item>
 
-      <ion-item>
-        <ion-label position="floating">Correo</ion-label>
-        <ion-input
-          type="email"
-          [(ngModel)]="email">
-        </ion-input>
-      </ion-item>
+          <ion-item class="modern-item">
+            <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+            <ion-input
+              type="password"
+              label="Contraseña"
+              labelPlacement="floating"
+              [(ngModel)]="password">
+            </ion-input>
+          </ion-item>
+        </div>
 
-      <ion-item>
-        <ion-label position="floating">Contraseña</ion-label>
-        <ion-input
-          type="password"
-          [(ngModel)]="password">
-        </ion-input>
-      </ion-item>
+        <ion-button expand="block" color="primary" class="login-btn" (click)="login()">
+          <ion-icon name="log-in-outline" slot="start"></ion-icon>
+          Iniciar sesión
+        </ion-button>
 
-      <ion-button expand="block" class="ion-margin-top" (click)="login()">
-        Iniciar sesión
-      </ion-button>
+        <div class="divider">
+          <span>o</span>
+        </div>
 
-      <ion-button expand="block" fill="outline" (click)="register()">
-        Registrarse
-      </ion-button>
+        <ion-button expand="block" fill="outline" color="secondary" class="register-btn" (click)="register()">
+          <ion-icon name="person-add-outline" slot="start"></ion-icon>
+          Crear cuenta
+        </ion-button>
 
-      <ion-text color="danger" *ngIf="mensaje">
-        <p>{{ mensaje }}</p>
-      </ion-text>
-
-    </ion-card-content>
-  </ion-card>
-
+        <ion-text color="danger" *ngIf="mensaje">
+          <div class="error-msg">
+            <ion-icon name="alert-circle"></ion-icon>
+            <span>{{ mensaje }}</span>
+          </div>
+        </ion-text>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

@@ -1,0 +1,130 @@
+.login-content {
+  --background: linear-gradient(180deg, #0a0a1a 0%, #12122a 50%, #1a0a2e 100%);
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding-top: 20px;
+}
+
+.logo-section {
+  text-align: center;
+  margin-bottom: 24px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.logo-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #7b2cbf, #00d4ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  box-shadow: 0 8px 32px rgba(123, 44, 191, 0.4);
+  animation: glow 3s ease-in-out infinite;
+}
+
+.logo-icon ion-icon {
+  font-size: 40px;
+  color: white;
+}
+
+.app-title {
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0;
+  background: linear-gradient(135deg, #7b2cbf, #00d4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 1px;
+}
+
+.app-subtitle {
+  font-size: 13px;
+  color: #8888aa;
+  margin: 6px 0 0;
+  letter-spacing: 0.5px;
+}
+
+.login-card {
+  width: 100%;
+  margin: 0;
+  border-radius: 20px;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.input-group {
+  margin-bottom: 8px;
+}
+
+.modern-item {
+  --background: rgba(18, 18, 42, 0.6);
+  --border-color: rgba(123, 44, 191, 0.2);
+  --border-radius: 14px;
+  --padding-start: 12px;
+  --min-height: 56px;
+  margin-bottom: 14px;
+  border: 1px solid rgba(123, 44, 191, 0.1);
+}
+
+.modern-item ion-icon {
+  color: #7b2cbf;
+  font-size: 20px;
+  margin-right: 8px;
+}
+
+.login-btn {
+  --border-radius: 14px;
+  height: 52px;
+  font-size: 16px;
+  margin-top: 4px;
+}
+
+.register-btn {
+  --border-color: #00d4ff;
+  --color: #00d4ff;
+  --border-radius: 14px;
+  height: 52px;
+  font-size: 16px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 18px 0;
+  color: #55557a;
+  font-size: 13px;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(123, 44, 191, 0.15);
+}
+
+.error-msg {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 23, 68, 0.1);
+  border: 1px solid rgba(255, 23, 68, 0.3);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+.error-msg ion-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}

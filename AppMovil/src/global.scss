@@ -1,37 +1,189 @@
-/*
- * App Global CSS
- * ----------------------------------------------------------------------------
- * Put style rules here that you want to apply globally. These styles are for
- * the entire app and not just one component. Additionally, this file can be
- * used as an entry point to import other CSS/Sass files to be included in the
- * output CSS.
- * For more information on global stylesheets, visit the documentation:
- * https://ionicframework.com/docs/layout/global-stylesheets
- */
-
-/* Core CSS required for Ionic components to work properly */
 @import "@ionic/angular/css/core.css";
-
-/* Basic CSS for apps built with Ionic */
 @import "@ionic/angular/css/normalize.css";
 @import "@ionic/angular/css/structure.css";
 @import "@ionic/angular/css/typography.css";
 @import "@ionic/angular/css/display.css";
-
-/* Optional CSS utils that can be commented out */
 @import "@ionic/angular/css/padding.css";
 @import "@ionic/angular/css/float-elements.css";
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
-
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
-
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+ion-content {
+  --background: linear-gradient(180deg, #0a0a1a 0%, #12122a 50%, #0f0f25 100%);
+}
+
+ion-header ion-toolbar {
+  --background: #0f0f25;
+  --border-color: transparent;
+  --color: #e0e0f0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+ion-header ion-toolbar ion-title {
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+}
+
+ion-card {
+  border-radius: 16px;
+  background: rgba(22, 22, 58, 0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 40px rgba(123, 44, 191, 0.05);
+  margin: 16px;
+  border: 1px solid rgba(123, 44, 191, 0.1);
+}
+
+ion-card-header {
+  padding-bottom: 8px;
+}
+
+ion-card-title {
+  font-weight: 700;
+  font-size: 20px;
+  color: #e0e0f0;
+  letter-spacing: 0.3px;
+}
+
+ion-card-subtitle {
+  font-size: 14px;
+  color: #7b2cbf;
+  font-weight: 600;
+}
+
+ion-item {
+  --background: rgba(18, 18, 42, 0.8);
+  --border-color: rgba(123, 44, 191, 0.15);
+  --color: #e0e0f0;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --inner-padding-end: 16px;
+  --min-height: 52px;
+  --highlight-color-focused: #7b2cbf;
+  --highlight-color-valid: #00e676;
+  --highlight-color-invalid: #ff1744;
+}
+
+ion-item ion-label,
+ion-item .label-text-wrapper {
+  color: #8888aa;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+ion-input,
+ion-select,
+ion-textarea {
+  --color: #e0e0f0;
+  font-size: 15px;
+  --placeholder-color: #55557a;
+  --placeholder-opacity: 1;
+}
+
+ion-button {
+  --border-radius: 12px;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  height: 48px;
+  margin-top: 8px;
+  --box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  text-transform: none;
+}
+
+ion-button.ion-color-primary {
+  --box-shadow: 0 4px 14px rgba(123, 44, 191, 0.35);
+}
+
+ion-button.ion-color-success {
+  --box-shadow: 0 4px 14px rgba(0, 230, 118, 0.25);
+}
+
+ion-button.ion-color-danger {
+  --box-shadow: 0 4px 14px rgba(255, 23, 68, 0.3);
+}
+
+ion-button.ion-color-warning {
+  --box-shadow: 0 4px 14px rgba(255, 215, 64, 0.25);
+}
+
+ion-select::part(icon) {
+  color: #7b2cbf;
+}
+
+ion-textarea {
+  --padding-top: 12px;
+  min-height: 80px;
+}
+
+ion-fab-button {
+  --background: #7b2cbf;
+  --background-activated: #6c27a8;
+  --box-shadow: 0 4px 16px rgba(123, 44, 191, 0.5);
+}
+
+ion-alert {
+  --background: #16163a;
+  --backdrop-opacity: 0.7;
+}
+
+ion-toast {
+  --background: #16163a;
+  --color: #e0e0f0;
+  --border-radius: 12px;
+  --box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+ion-spinner {
+  --color: #7b2cbf;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7b2cbf;
+  border-radius: 4px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(123, 44, 191, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(123, 44, 191, 0.6); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.neon-text {
+  color: #7b2cbf;
+  text-shadow: 0 0 10px rgba(123, 44, 191, 0.5);
+}
+
+.glass-card {
+  background: rgba(22, 22, 58, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(123, 44, 191, 0.15);
+}
+
+.gaming-gradient {
+  background: linear-gradient(135deg, #7b2cbf, #00d4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

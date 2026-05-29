@@ -1,65 +1,88 @@
-<ion-header>
-  <ion-toolbar color="dark">
-
-    <ion-title>
-      Publicaciones Gamer
-    </ion-title>
-
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Registros Gamer</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding records-content">
+  <div class="records-empty" *ngIf="encuestas.length === 0">
+    <div class="empty-icon">
+      <ion-icon name="server-outline"></ion-icon>
+    </div>
+    <h3>Sin registros</h3>
+    <p>No hay encuestas guardadas aún. Completa una desde la sección Encuestas.</p>
+  </div>
 
-  <ion-card *ngFor="let encuesta of encuestas">
+  <div class="records-list" *ngIf="encuestas.length > 0">
+    <div class="record-card" *ngFor="let encuesta of encuestas; let i = index" style="animation: fadeIn 0.4s ease-out; animation-delay: {{ i * 0.05 }}s;">
+      <div class="record-image" *ngIf="encuesta.imagen || encuesta.juego_imagen">
+        <img [src]="encuesta.imagen || encuesta.juego_imagen" />
+        <div class="record-image-overlay">
+          <span class="record-badge">{{ encuesta.plataforma }}</span>
+        </div>
+      </div>
 
-    <img
-      *ngIf="encuesta.imagen"
-      [src]="encuesta.imagen">
+      <div class="record-body">
+        <div class="record-header">
+          <h3 class="record-title">{{ encuesta.videojuego }}</h3>
+          <span class="record-alias">
+            <ion-icon name="person-outline"></ion-icon>
+            {{ encuesta.alias }}
+          </span>
+        </div>
 
-    <ion-card-header>
+        <div class="record-meta">
+          <div class="meta-item" *ngIf="encuesta.lugar">
+            <ion-icon name="location-outline"></ion-icon>
+            <span>{{ encuesta.lugar }}</span>
+          </div>
+          <div class="meta-item">
+            <ion-icon name="color-palette-outline"></ion-icon>
+            <span>{{ encuesta.genero }}</span>
+          </div>
+          <div class="meta-item">
+            <ion-icon name="calendar-outline"></ion-icon>
+            <span>{{ encuesta.fecha | date:'shortDate' }}</span>
+          </div>
+          <div class="meta-item" *ngIf="encuesta.edad">
+            <ion-icon name="people-outline"></ion-icon>
+            <span>{{ encuesta.edad }} años</span>
+          </div>
+          <div class="meta-item" *ngIf="encuesta.rol">
+            <ion-icon name="school-outline"></ion-icon>
+            <span>{{ encuesta.rol }}</span>
+          </div>
+        </div>
 
-      <ion-card-title>
-        🎮 {{ encuesta.videojuego }}
-      </ion-card-title>
+        <p class="record-comment" *ngIf="encuesta.comentario">"{{ encuesta.comentario }}"</p>
 
-      <ion-card-subtitle>
-        👤 {{ encuesta.alias }}
-      </ion-card-subtitle>
+        <div class="record-footer">
+          <div class="gps-coords" *ngIf="encuesta.latitud">
+            <ion-icon name="globe-outline"></ion-icon>
+            <span>{{ encuesta.latitud | number:'1.4-4' }}, {{ encuesta.longitud | number:'1.4-4' }}</span>
+          </div>
+        </div>
+      </div>
 
-    </ion-card-header>
+      <div class="record-api" *ngIf="encuesta.juego_nombre_api || encuesta.videojuego" (click)="toggleApi(i)" [class.expanded]="apiExpanded[i]">
+        <div class="api-header">
+          <ion-icon name="cloud-download-outline"></ion-icon>
+          <span>Datos API: {{ encuesta.juego_nombre_api || encuesta.videojuego }}</span>
+          <ion-icon [name]="apiExpanded[i] ? 'chevron-up-outline' : 'chevron-down-outline'"></ion-icon>
+        </div>
+        <div class="api-body" *ngIf="apiExpanded[i]">
+          <div *ngIf="encuesta.juego_genero_api || encuesta.juego_plataforma_api || encuesta.juego_descripcion_api">
+            <p *ngIf="encuesta.juego_genero_api"><strong>Género:</strong> {{ encuesta.juego_genero_api }}</p>
+            <p *ngIf="encuesta.juego_plataforma_api"><strong>Plataforma:</strong> {{ encuesta.juego_plataforma_api }}</p>
+            <p *ngIf="encuesta.juego_descripcion_api" class="api-description">{{ encuesta.juego_descripcion_api }}</p>
+          </div>
+          <p *ngIf="!encuesta.juego_genero_api && !encuesta.juego_plataforma_api" class="api-no-data">
+            No se realizó búsqueda en la API para este juego
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <ion-card-content>
-
-      <p>
-        📍 {{ encuesta.lugar }}
-      </p>
-
-      <p>
-        💬 {{ encuesta.comentario }}
-      </p>
-
-      <p>
-        🎯 {{ encuesta.genero }}
-      </p>
-
-      <p>
-        🖥️ {{ encuesta.plataforma }}
-      </p>
-
-      <p>
-        📅 {{ encuesta.fecha | date:'short' }}
-      </p>
-
-      <p>
-        🌎 {{ encuesta.latitud }}
-      </p>
-
-      <p>
-        🌎 {{ encuesta.longitud }}
-      </p>
-
-    </ion-card-content>
-
-  </ion-card>
-
+  <div style="height: 40px;"></div>
 </ion-content>

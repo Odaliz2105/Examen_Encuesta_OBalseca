@@ -18,6 +18,7 @@ import { SupabaseService } from '../services/supabase.service';
 export class Tab4Page implements OnInit {
 
   encuestas: any[] = [];
+  apiExpanded: boolean[] = [];
 
   constructor(
     private supabaseService: SupabaseService
@@ -29,14 +30,20 @@ export class Tab4Page implements OnInit {
 
   }
 
+  toggleApi(index: number) {
+    this.apiExpanded[index] = !this.apiExpanded[index];
+  }
+
   async cargarEncuestas() {
 
-    const { data, error } = await this.supabaseService
-      .obtenerEncuestas();
+    const { data, error } =
+      await this.supabaseService.obtenerEncuestas();
 
     if (error) {
 
       console.log(error);
+
+      alert('Error cargando registros');
 
       return;
 

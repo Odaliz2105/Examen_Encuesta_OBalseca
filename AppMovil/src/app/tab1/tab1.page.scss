@@ -1,24 +1,173 @@
 .inicio-content {
+  --background: linear-gradient(180deg, #0a0a1a 0%, #12122a 100%);
+}
 
-  --background: linear-gradient(
-    to bottom,
-    #1f1c2c,
-    #928dab
-  );
+.hero-section {
+  position: relative;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(123,44,191,0.3), rgba(0,212,255,0.15));
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  z-index: 1;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.hero-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #7b2cbf, #00d4ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  box-shadow: 0 8px 32px rgba(123, 44, 191, 0.4);
+  animation: glow 3s ease-in-out infinite;
+}
+
+.hero-icon ion-icon {
+  font-size: 36px;
+  color: white;
+}
+
+.hero-content h1 {
+  font-size: 26px;
+  font-weight: 800;
+  margin: 0;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.hero-content p {
+  font-size: 14px;
+  color: #8888aa;
+  margin: 6px 0 0;
 }
 
 .welcome-card {
+  animation: fadeIn 0.6s ease-out;
+}
 
-  border-radius: 20px;
-  overflow: hidden;
+.welcome-card ion-card-title {
+  font-size: 22px;
+  font-weight: 700;
+}
 
-  ion-card-title {
-    color: #7b2cbf;
-    font-size: 24px;
-    font-weight: bold;
-  }
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 8px 0;
+}
 
-  ion-card-content {
-    font-size: 16px;
-  }
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 8px;
+  border-radius: 14px;
+  background: rgba(18, 18, 42, 0.6);
+  border: 1px solid rgba(123, 44, 191, 0.08);
+  transition: all 0.3s ease;
+}
+
+.feature-item:active {
+  transform: scale(0.95);
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-icon ion-icon {
+  font-size: 24px;
+}
+
+.feature-item span {
+  font-size: 12px;
+  font-weight: 600;
+  color: #e0e0f0;
+  text-align: center;
+}
+
+.invite-card {
+  background: linear-gradient(135deg, rgba(123,44,191,0.12), rgba(0,212,255,0.08));
+  border: 1px solid rgba(123, 44, 191, 0.2);
+  animation: fadeIn 0.6s ease-out;
+}
+
+.invite-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.invite-message {
+  font-size: 14px;
+  color: #cccce0;
+  text-align: center;
+  font-style: italic;
+  line-height: 1.6;
+  margin: 0;
+  padding: 12px 8px;
+  background: rgba(18, 18, 42, 0.5);
+  border-radius: 12px;
+  border-left: 3px solid #7b2cbf;
+}
+
+.qr-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  background: #16163a;
+  border-radius: 16px;
+  border: 1px solid rgba(123, 44, 191, 0.15);
+}
+
+.qr-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 8px;
+}
+
+.qr-label {
+  font-size: 12px;
+  color: #7b2cbf;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.download-btn {
+  --border-radius: 14px;
+  height: 50px;
+  font-size: 15px;
+}
+
+.register-invite-btn {
+  --border-color: rgba(0, 212, 255, 0.3);
+  --color: #00d4ff;
+  --border-radius: 14px;
+  height: 50px;
+  font-size: 15px;
 }

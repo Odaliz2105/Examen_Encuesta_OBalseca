@@ -34,7 +34,7 @@ export class PhotoService {
     // Take a photo
     const capturedPhoto = await Camera.getPhoto({
       resultType: CameraResultType.Uri,
-      source: CameraSource.Camera,
+      source: CameraSource.Prompt,
       quality: 100,
     saveToGallery: true,
   });
@@ -83,6 +83,7 @@ private async savePicture(photo: Photo) {
     return {
       filepath: savedFile.uri,
       webviewPath: Capacitor.convertFileSrc(savedFile.uri),
+      data: base64Data as string,
     };
   } else {
     // Use webPath to display the new image instead of base64 since it's
@@ -90,6 +91,7 @@ private async savePicture(photo: Photo) {
     return {
       filepath: fileName,
       webviewPath: photo.webPath,
+      data: base64Data as string,
     };
   }
 }
@@ -130,4 +132,5 @@ private async savePicture(photo: Photo) {
 export interface UserPhoto {
   filepath: string;
   webviewPath?: string;
+  data?: string;
 }

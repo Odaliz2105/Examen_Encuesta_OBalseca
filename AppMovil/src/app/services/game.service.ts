@@ -4,18 +4,16 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
+export class GameService {
 
-export class AnimeService {
-
-  private apiUrl = 'https://api.jikan.moe/v4/anime';
+  apiUrl = 'https://www.freetogame.com/api/games';
 
   constructor(private http: HttpClient) {}
 
-  getAnimes() {
+  buscarJuego(nombre: string) {
+
     return this.http.get(this.apiUrl);
+
   }
 
-  searchAnime(nombre: string) {
-    return this.http.get(`${this.apiUrl}?q=${nombre}`);
-  }
 }

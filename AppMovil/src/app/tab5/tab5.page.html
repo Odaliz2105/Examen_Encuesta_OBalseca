@@ -1,55 +1,102 @@
-<ion-header>
-  <ion-toolbar color="dark">
-    <ion-title>
-      Mi Perfil
-    </ion-title>
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Mi Perfil</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="perfil-content ion-padding">
+<ion-content class="ion-padding perfil-content">
+  <div class="perfil-container">
+    <div class="profile-cover">
+      <div class="profile-avatar">
+        <img src="assets/FOTO.jpeg" />
+        <div class="avatar-ring"></div>
+      </div>
+      <h1 class="profile-name">Odaliz Balseca</h1>
+      <p class="profile-role">Desarrollador de Software</p>
+    </div>
 
-  <ion-card class="perfil-card">
+    <ion-card class="info-card">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="school-outline"></ion-icon>
+          Información académica
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="info-item">
+          <div class="info-icon" style="background: rgba(123,44,191,0.15);">
+            <ion-icon name="book-outline" style="color: #7b2cbf;"></ion-icon>
+          </div>
+          <div class="info-text">
+            <span class="info-label">Carrera</span>
+            <span class="info-value">Desarrollo de Software</span>
+          </div>
+        </div>
 
-    <img
-       src="assets/FOTO.jpeg">
+        <div class="info-item">
+          <div class="info-icon" style="background: rgba(0,212,255,0.15);">
+            <ion-icon name="code-slash-outline" style="color: #00d4ff;"></ion-icon>
+          </div>
+          <div class="info-text">
+            <span class="info-label">Materia</span>
+            <span class="info-value">Aplicaciones Móviles</span>
+          </div>
+        </div>
 
-    <ion-card-header>
+        <div class="info-item">
+          <div class="info-icon" style="background: rgba(0,230,118,0.15);">
+            <ion-icon name="game-controller-outline" style="color: #00e676;"></ion-icon>
+          </div>
+          <div class="info-text">
+            <span class="info-label">Proyecto</span>
+            <span class="info-value">Game Survey Campus</span>
+          </div>
+        </div>
 
-      <ion-card-title>
-        Odaliz Balseca
-      </ion-card-title>
+        <div class="info-item">
+          <div class="info-icon" style="background: rgba(255,215,64,0.15);">
+            <ion-icon name="rocket-outline" style="color: #ffd740;"></ion-icon>
+          </div>
+          <div class="info-text">
+            <span class="info-label">Stack</span>
+            <span class="info-value">Ionic + Angular + Supabase</span>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
 
-    </ion-card-header>
+    <ion-card class="stats-card">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="stats-chart-outline"></ion-icon>
+          Estadísticas
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-value">{{ encuestasCount || 0 }}</span>
+            <span class="stat-label">Encuestas</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">{{ fotosCount || 0 }}</span>
+            <span class="stat-label">Fotos</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">4</span>
+            <span class="stat-label">Tabs</span>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
 
-    <ion-card-content>
+    <ion-button expand="block" color="danger" class="logout-btn" (click)="logout()">
+      <ion-icon name="log-out-outline" slot="start"></ion-icon>
+      Cerrar sesión
+    </ion-button>
 
-      <p>
-        📚 Carrera: Desarrollo de Software
-      </p>
+    <p class="version-text">v1.0.0 - Game Survey Campus</p>
+  </div>
 
-      <p>
-        🎓 Materia: Aplicaciones Móviles
-      </p>
-
-      <p>
-        💻 Proyecto: Anime Explorer
-      </p>
-
-      <p>
-        🚀 Ionic + Angular + Supabase
-      </p>
-
-      <ion-button
-        expand="block"
-        color="danger"
-        (click)="logout()">
-
-        Cerrar sesión
-
-      </ion-button>
-
-    </ion-card-content>
-
-  </ion-card>
-
+  <div style="height: 40px;"></div>
 </ion-content>

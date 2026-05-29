@@ -1,31 +1,29 @@
-<ion-header [translucent]="true">
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title> Photo Gallery </ion-title>
+    <ion-title>Evidencias Subidas</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Photo Gallery</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="gallery-content">
+  <div class="gallery-empty" *ngIf="evidencias.length === 0 && !cargando">
+    <div class="empty-icon">
+      <ion-icon name="images-outline"></ion-icon>
+    </div>
+    <h3>Sin evidencias aún</h3>
+    <p>Las fotos tomadas en las encuestas aparecerán aquí</p>
+  </div>
 
-  <!-- CHANGE: Add a grid component to display the photos. -->
-  <ion-grid>
+  <ion-grid class="photo-grid" *ngIf="evidencias.length > 0">
     <ion-row>
-      <!-- CHANGE: Create a new column and image component for each photo -->
-      <ion-col size="6" *ngFor="let photo of photoService.photos; index as position">
-        <ion-img [src]="photo.webviewPath"></ion-img>
+      <ion-col size="6" *ngFor="let item of evidencias; index as position">
+        <div class="photo-card">
+          <img [src]="item.imagen" class="photo-img" />
+          <div class="photo-overlay">
+            <span>{{ item.videojuego || 'Evidencia' }}</span>
+          </div>
+          <div class="photo-badge">{{ item.alias }}</div>
+        </div>
       </ion-col>
     </ion-row>
   </ion-grid>
-
-
-  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
-    <!-- CHANGE: Add a click event listener to the floating action button -->
-    <ion-fab-button (click)="addPhotoToGallery()">
-      <ion-icon name="camera"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
 </ion-content>

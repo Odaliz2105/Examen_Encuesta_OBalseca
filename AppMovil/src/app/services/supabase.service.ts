@@ -59,15 +59,59 @@ export class SupabaseService {
 
   }
 
+  async subirEvidencia(base64Data: string, fileName: string) {
+
+    const cleanBase64 = base64Data.includes(',')
+      ? base64Data.split(',')[1]
+      : base64Data;
+
+    const byteCharacters = atob(cleanBase64);
+    const byteNumbers = new Array(byteCharacters.length);
+
+    for (let i = 0; i < byteCharacters.length; i++) {
+
+      byteNumbers[i] = byteCharacters.charCodeAt(i);
+
+    }
+
+    const byteArray = new Uint8Array(byteNumbers);
+    const blob = new Blob([byteArray], { type: 'image/jpeg' });
+
+    const { data, error } = await this.supabase
+      .storage
+      .from('evidencias')
+      .upload(fileName, blob, {
+        contentType: 'image/jpeg',
+        upsert: true
+      });
+
+    if (error) {
+
+      return { url: '', error };
+
+    }
+
+    const { data: publicUrl } = this.supabase
+      .storage
+      .from('evidencias')
+      .getPublicUrl(data.path);
+
+    return {
+      url: publicUrl.publicUrl,
+      error: null
+    };
+
+  }
+
   // GET SURVEYS
 
   obtenerEncuestas() {
 
-    return this.supabase
-      .from('surveys')
-      .select('*')
-      .order('fecha', { ascending: false });
-
+  return this.supabase
+    .from('surveys')
+    .select('*')
+    .order('fecha', { ascending: false });
+  
   }
 
 }

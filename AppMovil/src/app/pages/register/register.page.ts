@@ -10,10 +10,15 @@ import {
   IonContent,
   IonItem,
   IonInput,
-  IonButton
+  IonButton,
+  IonIcon,
+  IonBackButton,
+  IonButtons,
+  IonCard,
+  IonCardContent
 } from '@ionic/angular/standalone';
 
-import { AuthService } from 'src/app/services/auth.service';
+import { SupabaseService } from 'src/app/services/supabase.service';
 
 @Component({
   selector: 'app-register',
@@ -29,7 +34,12 @@ import { AuthService } from 'src/app/services/auth.service';
     IonContent,
     IonItem,
     IonInput,
-    IonButton
+    IonButton,
+    IonIcon,
+    IonBackButton,
+    IonButtons,
+    IonCard,
+    IonCardContent
   ]
 })
 export class RegisterPage {
@@ -38,7 +48,7 @@ export class RegisterPage {
   password = '';
 
   constructor(
-    private authService: AuthService,
+    private authService: SupabaseService,
     private router: Router
   ) {}
 
@@ -56,6 +66,10 @@ export class RegisterPage {
 
     alert('Usuario registrado');
 
+    this.router.navigate(['/login']);
+  }
+
+  goToLogin() {
     this.router.navigate(['/login']);
   }
 }

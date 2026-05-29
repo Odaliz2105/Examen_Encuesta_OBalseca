@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
-// CHANGE: Import the PhotoService
-import { PhotoService } from '../services/photo.service';
+import { Component, OnInit } from '@angular/core';
+import { SupabaseService } from '../services/supabase.service';
 
 @Component({
   selector: 'app-tab2',
@@ -8,12 +7,25 @@ import { PhotoService } from '../services/photo.service';
   styleUrls: ['tab2.page.scss'],
   standalone: false,
 })
-export class Tab2Page {
-  // CHANGE: Update constructor to include `photoService`
-  constructor(public photoService: PhotoService) {}
+export class Tab2Page implements OnInit {
 
-  // CHANGE: Add `addNewToGallery()` method
-  addPhotoToGallery() {
-    this.photoService.addNewToGallery();
+  evidencias: any[] = [];
+  cargando = true;
+
+  constructor(
+    private supabaseService: SupabaseService
+  ) {}
+
+  ngOnInit() {
+    this.cargarEvidencias();
+  }
+
+  async cargarEvidencias() {
+    this.cargando = true;
+    const { data, error } = await this.supabaseService.obtenerEncuestas();
+    if (!error && data) {
+      this.evidencias = data.filter((e: any) => e.imagen);
+    }
+    this.cargando = false;
   }
 }
