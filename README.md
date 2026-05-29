@@ -319,6 +319,9 @@ Agregar imágenes de:
 
 * APK / Código QR
 https://drive.google.com/drive/folders/1weWdi9Hz8uks2yCJT4fi6ra-d-ZAOr3n?usp=sharing
+
+* Link del Video en la red Social Youtube
+  
 ---
 
 # 🎓 Conclusión
