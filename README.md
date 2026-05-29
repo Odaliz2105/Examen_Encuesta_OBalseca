@@ -151,6 +151,8 @@ Public Bucket
 
 para almacenar fotografías tomadas durante las encuestas.
 
+<img width="1592" height="742" alt="image" src="https://github.com/user-attachments/assets/98c03de9-d472-45b1-a4ee-3cc4d285d83a" />
+
 ---
 
 # 🌐 API Utilizada
@@ -287,18 +289,36 @@ APK Android generado con Ionic + Capacitor.
 
 Agregar imágenes de:
 
-* Login
-* Registro
-* Inicio
-* Encuesta
-* Búsqueda de videojuegos
-* GPS
-* Evidencias
-* Registros
-* Perfil
-* Dashboard Firebase
-* APK / Código QR
+* Login/ Registro
+<img width="717" height="1600" alt="image" src="https://github.com/user-attachments/assets/070f025d-247f-4b82-9b2a-929954e8836d" />
 
+* Inicio
+<img width="717" height="1600" alt="image" src="https://github.com/user-attachments/assets/9452f0ee-8d3a-4074-adec-fe6f2c496693" />
+
+* Encuesta
+<img width="717" height="1600" alt="image" src="https://github.com/user-attachments/assets/ce95261e-37ec-4065-90e7-ee5ede12e5a2" />
+
+* Búsqueda de videojuegos
+<img width="717" height="1600" alt="image" src="https://github.com/user-attachments/assets/20d15128-6ebc-4cf1-9b52-fcedbad1e696" />
+
+* GPS
+<img width="717" height="1600" alt="image" src="https://github.com/user-attachments/assets/dc4607b8-b65b-437c-a3cd-25d8cdf5242b" />
+<img width="717" height="1600" alt="image" src="https://github.com/user-attachments/assets/06ea28d0-0f7b-4e42-bbca-efe8ecc63c1d" />
+
+* Evidencias
+<img width="717" height="1600" alt="image" src="https://github.com/user-attachments/assets/e433f1b1-6284-4c4a-9b48-e4d432e26062" />
+
+* Registros
+<img width="717" height="1600" alt="image" src="https://github.com/user-attachments/assets/b104905b-6dfc-48fb-9002-771c6a55f783" />
+
+* Perfil
+<img width="717" height="1600" alt="image" src="https://github.com/user-attachments/assets/adbe5228-51ce-4d77-9b95-f22fb93e1516" />
+
+* Dashboard Firebase
+
+
+* APK / Código QR
+https://drive.google.com/drive/folders/1weWdi9Hz8uks2yCJT4fi6ra-d-ZAOr3n?usp=sharing
 ---
 
 # 🎓 Conclusión
